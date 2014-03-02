@@ -29,7 +29,7 @@ begin
     
     u2: entity work.dyn_ind_controler(behavioral) 
         port map( 
-        clock => clock, 
+        clock => clock_dyn_ind, 
         reset => reset, 
         d3 => cnt(15 downto 12), 
         d2 => cnt(11 downto 8), 

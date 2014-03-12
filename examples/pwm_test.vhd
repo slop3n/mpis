@@ -19,7 +19,7 @@ architecture behavior of pwm_test is
 begin
  
 	-- instantiate the unit under test (uut)
-    uut: entity work.pwm(example_2)
+    uut: entity work.pwm(with_concurrent_assignment)
     generic map( WIDTH => WIDTH)
     port map (
           clock => clock,
@@ -29,7 +29,7 @@ begin
         );
 
    -- clock process 
-    clock_process :process
+    clock_process: process
     begin
         if clock_run then
             clock <= '0';
@@ -45,12 +45,12 @@ begin
    stim_proc: process
    begin   
         reset <= '1';
+        duty <= "0011";        
         wait until falling_edge(clock);
         assert pwm = '0' report "pwm must be '0' after reset";
 
         reset <= '0';
-        duty <= "0011";
-        wait for CLOCK_PERIOD * 192;   
+        wait for CLOCK_PERIOD * 198;   
         
         duty <= "1100";
         wait for CLOCK_PERIOD * 200;  

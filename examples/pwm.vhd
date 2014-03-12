@@ -8,51 +8,54 @@ entity pwm is
       reset : in  std_logic;
       duty : in  unsigned (WIDTH-1 downto 0);
       pwm : out std_logic);
-    end pwm;
+end pwm;
  
-architecture example_1 of pwm is
+architecture with_concurrent_assignment of pwm is
+    constant CNT_MAX : unsigned(WIDTH-1 downto 0) := (others=>'1');
+    constant CNT_MIN : unsigned(WIDTH-1 downto 0) := (others=>'0');
+    
     type direction is (UP,DOWN);
     
+    signal dir: direction;    
     signal cnt : unsigned(WIDTH-1 downto 0);
-    signal pwm_i : std_logic;
-    signal dir: direction;
-    constant CNT_MAX : unsigned(WIDTH-1 downto 0) := (others=>'1');
-    constant CNT_MIN : unsigned(WIDTH-1 downto 0) := (others=>'0');
 begin
- 
-   pwm_i <= '1' when cnt < duty else '0';
-   pwm <= pwm_i;
-    
-   counter: process(clock, reset) begin
-       if( reset = '1') then
-         cnt <= (others => '0');
-         dir <= UP;
-       elsif rising_edge(clock) then
-          if ( dir = UP ) then
-            if( cnt = CNT_MAX ) then
-              dir <= DOWN;
+    -- 'cnt' and 'duty' are in the 'imlicit' sensitivity list of the concurrent assignment
+    pwm <= '1' when cnt < duty else '0';
+
+    up_down_counter: process(clock, reset) begin
+        if( reset = '1') then
+            cnt <= (others => '0');
+            dir <= UP;
+        elsif rising_edge(clock) then
+            if( dir = UP ) then
+                if( cnt = CNT_MAX ) then
+                    dir <= DOWN;
+                else
+                    cnt <= cnt + 1;
+                end if;
             else
-              cnt <= cnt + 1;
+                if( cnt = CNT_MIN ) then
+                    dir <= UP;
+                else
+                    cnt <= cnt - 1;
+                end if;       
             end if;
-          else
-            if( cnt = CNT_MIN ) then
-              dir <= UP;
-            else
-              cnt <= cnt - 1;
-            end if;       
-          end if;
-       end if;
-   end process;  
-end example_1;
+        end if;
+    end process;  
+end with_concurrent_assignment;
 
-architecture example_2 of pwm is
-    type direction is (UP,DOWN);    
-    signal cnt : unsigned(WIDTH-1 downto 0);
-    signal dir: direction;
+architecture with_process of pwm is
     constant CNT_MAX : unsigned(WIDTH-1 downto 0) := (others=>'1');
     constant CNT_MIN : unsigned(WIDTH-1 downto 0) := (others=>'0');
+    
+    type direction is (UP,DOWN);
+    
+    signal dir: direction;    
+    signal cnt : unsigned(WIDTH-1 downto 0);
 begin
 
+    -- Illustrates the importance of the sensitivity list.
+    -- Without 'cnt' in list, the model behaves erraticaly. 
     comparator: process(duty)
     begin
         if (cnt < duty) then
@@ -62,24 +65,24 @@ begin
         end if;
     end process;
    
-   counter: process(clock, reset) begin
-       if( reset = '1') then
-         cnt <= (others => '0');
-         dir <= UP;
-       elsif rising_edge(clock) then
-          if ( dir = UP ) then
-            if( cnt = CNT_MAX ) then
-              dir <= DOWN;
+    up_down_counter: process(clock, reset) begin
+        if( reset = '1') then
+            cnt <= (others => '0');
+            dir <= UP;
+        elsif rising_edge(clock) then
+            if( dir = UP ) then
+                if( cnt = CNT_MAX ) then
+                    dir <= DOWN;
+                else
+                    cnt <= cnt + 1;
+                end if;
             else
-              cnt <= cnt + 1;
+                if( cnt = CNT_MIN ) then
+                    dir <= UP;
+                else
+                    cnt <= cnt - 1;
+                end if;       
             end if;
-          else
-            if( cnt = CNT_MIN ) then
-              dir <= UP;
-            else
-              cnt <= cnt - 1;
-            end if;       
-          end if;
-       end if;
-   end process;  
-end example_2;
+        end if;
+    end process;  
+end with_process;

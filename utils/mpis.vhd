@@ -7,20 +7,24 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package mpis is
-
 function seven_segment_decoder( hex : unsigned(3 downto 0)) return std_logic_vector;
 function are_equal( vector: unsigned; number: natural) return boolean;
-
+function format_diff( expected: integer; actual: integer) return string;
 end mpis;
 
 package body mpis is
+-- formats string for reporting difference between expected and actual values
+function format_diff( expected: integer; actual: integer) return string is
+begin
+  return "expected " & integer'image(expected) & ", actual " & integer'image(actual);
+end format_diff;
 
 -- returns 'true' if both arguments represent the same number
 function are_equal( vector: unsigned; number: natural) return boolean is
 begin
   return vector = to_unsigned(number, vector'length);
 end are_equal;
-   
+
 function seven_segment_decoder( hex : unsigned(3 downto 0)) return std_logic_vector is
     variable leds : std_logic_vector(6 downto 0);
 begin
@@ -33,7 +37,6 @@ begin
     --  4 |   | 2
     --     ---
     --      3
-
    case (hex) is 
       when "0000" =>
          leds := "1000000"; --0
@@ -70,9 +73,7 @@ begin
       when others =>
          leds := "1111111"; -- nothing
    end case;
-   
    return leds;
-   
 end seven_segment_decoder;
     
 end mpis;

@@ -5,16 +5,16 @@ entity johnson_tb is
 end johnson_tb;
  
 architecture behavior of johnson_tb is  
-    constant CLOCK_PERIOD : time := 10 ns;
-    constant WIDTH : natural := 8;   
+    constant CLOCK_PERIOD : time := 10 ns; 
+    constant WIDTH : positive := 8;
     signal clock_run : boolean := true;
    
     signal clock : std_logic;
     signal reset : std_logic;
     signal led : std_logic_vector(WIDTH-1 downto 0);
 begin
-   UUT: entity work.johnson(v2)
-      generic map( SIZE => 8 )
+   UUT: entity work.johnson(v1)
+      generic map( N => WIDTH )
       port map (
          clock => clock,
          reset => reset,

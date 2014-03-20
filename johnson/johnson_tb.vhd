@@ -13,7 +13,7 @@ architecture behavior of johnson_tb is
     signal reset : std_logic;
     signal led : std_logic_vector(WIDTH-1 downto 0);
 begin
-   UUT: entity work.johnson
+   UUT: entity work.johnson(v2)
       generic map( SIZE => 8 )
       port map (
          clock => clock,

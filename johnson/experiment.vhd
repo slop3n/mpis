@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity experiment is
-    port ( clock50: in std_logic;
+    port ( clk50: in std_logic;
            reset: in std_logic;
            led: out std_logic_vector (7 downto 0));
 end experiment;
@@ -21,7 +21,7 @@ begin
    U2: entity work.clock_divider
       generic map (N => 23)
       port map( 
-          clock_in => clock50,
+          clock_in => clk50,
           clock_out => clock,
           reset => reset);
 end structural;

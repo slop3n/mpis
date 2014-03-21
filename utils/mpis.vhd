@@ -6,8 +6,8 @@ use ieee.numeric_std.all;
 --	Package mpis
 --
 package mpis is
-    subtype bcd_digit is integer range 0 to 9;
-    type bcd_number is array (integer range<>) of bcd_digit;
+    subtype bcd_digit is natural range 0 to 9;
+    type bcd_number is array (natural range<>) of bcd_digit;
 
 	function seven_segment_decoder( hex : unsigned(3 downto 0)) return std_logic_vector;
 	function are_equal( vector: unsigned; number: natural) return boolean;

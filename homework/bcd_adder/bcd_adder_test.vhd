@@ -44,8 +44,8 @@ begin
     stim_proc: process
         variable expected, actual: integer;     
     begin           
-        for i1 in 0 to 999 loop
-            for i0 in 0 to 999 loop
+        for i1 in 0 to 10**N-1 loop
+            for i0 in 0 to 10**N-1 loop
                 integer_to_bcd(i0, a);
                 integer_to_bcd(i1, b);
                 wait for 10 ns;                

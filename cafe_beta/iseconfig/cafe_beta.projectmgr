@@ -10,13 +10,13 @@
          <ClosedNode>/cafe_top - behavioral C:|Users|vasko|Documents|GitHub|mpis|cafe_beta|TOP.vhd/u3 - led_control - behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>u2 - cafe_control - behavioral (C:/Users/vasko/Documents/GitHub/mpis/cafe_beta/control.vhd)</SelectedItem>
+         <SelectedItem>cafe_top - behavioral (C:/Users/vasko/Documents/GitHub/mpis/cafe_beta/TOP.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000014a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000014a0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>u2 - cafe_control - behavioral (C:/Users/vasko/Documents/GitHub/mpis/cafe_beta/control.vhd)</CurrentItem>
+      <CurrentItem>cafe_top - behavioral (C:/Users/vasko/Documents/GitHub/mpis/cafe_beta/TOP.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -43,7 +43,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000001e5000000040101000100000000000000000000000064ffffffff0000008100000000000000040000007e00000001000000000000009d0000000100000000000000660000000100000000000000640000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000003a3000000040101000100000000000000000000000064ffffffff0000008100000000000000040000007e00000001000000000000009d0000000100000000000000660000000100000000000002220000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>CafeControl_TB.vhd</CurrentItem>
    </ItemView>
@@ -92,13 +92,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000139000000010000000100000000000000000000000064ffffffff000000810000000000000001000001390000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>

@@ -1,0 +1,1 @@
+--debug "typical" --relax -L "xil_defaultlib" -L "secureip" --snapshot "johnson_tb_behav" --prj "C:/Users/vasko/Documents/GitHub/mpis/johnson/project_1/project_1.sim/sim_1/behav/johnson_tb.prj" "xil_defaultlib.johnson_tb" 

@@ -1,0 +1,6 @@
+vhdl xil_defaultlib "C:/Users/vasko/Documents/GitHub/mpis/utils/clock_divider.vhd"
+vhdl xil_defaultlib "C:/Users/vasko/Documents/GitHub/mpis/johnson/johnson.vhd"
+vhdl xil_defaultlib "C:/Users/vasko/Documents/GitHub/mpis/johnson/experiment.vhd"
+vhdl xil_defaultlib "C:/Users/vasko/Documents/GitHub/mpis/johnson/johnson_tb.vhd"
+verilog xil_defaultlib "C:/Xilinx/Vivado/2014.1/data/verilog/src/glbl.v"
+nosort

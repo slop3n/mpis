@@ -46,11 +46,11 @@ begin
     -- stimulus process
     stim_proc: process
     begin      
-        reset <= '1';
+        --reset <= '1';
         enable <= '0';
         wait until falling_edge(clock);
 
-        reset <= '0';
+        --reset <= '0';
         enable <= '0';
         wait until falling_edge(clock);
         assert are_equal(fn,0) report "fn(0)=0";

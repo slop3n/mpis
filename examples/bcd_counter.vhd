@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity bcd_counter is
     port( clock : in std_logic; reset: in std_logic; q : out unsigned (3 downto 0) );
     constant INITIAL_VALUE: unsigned (3 downto 0) := "0000";
-    constant TERMINAL_VALUE: unsigned (3 downto 0) := "1010";       
+    constant TERMINAL_VALUE: unsigned (3 downto 0) := "1001";       
 end bcd_counter;
 
 architecture with_variable of bcd_counter is	
@@ -26,7 +26,7 @@ begin
 end with_variable;
 
 architecture with_signal of bcd_counter is
-	signal temp : unsigned (3 downto 0);
+    signal temp : unsigned (3 downto 0);
 begin
     counter: process( clock, reset ) 
     begin
